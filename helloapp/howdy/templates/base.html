@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Semantic patent matching</title>
+
+    <!-- Bootstrap Core CSS -->
+    <!-- <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet"> --><!--TODO make STATIC_URL work here-->
+    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/w3.css" rel="stylesheet">
+    <link href="/static/jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
+    <script src="/static/jquery-3.2.1.js"></script>
+	  <script src="/static/jquery-linedtextarea.js"></script>
+
+    <style type='text/css'>
+      textarea {
+      border: none;
+      overflow: auto;
+      outline: none;
+
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <p>
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Page Heading
+                    <small>Secondary Text</small>
+                </h1>
+            </div>
+        </div>
+        <p>
+        <div class="w3-card-4" height='100'>
+          <textarea class="lined" rows="10" cols="60">JavaScript was originally developed by Brendan
+Eich of Netscape under the name Mocha,
+which was later renamed to LiveScript,
+and finally to JavaScript.
+
+The change of name from LiveScript to JavaScript roughly
+coincided with Netscape adding support for
+Java technology in its Netscape Navigator
+web browser.
+
+JavaScript was first introduced
+and deployed in the Netscape browser version
+2.0B3 in December 1995.
+
+The naming has caused confusion, giving the
+impression that the language is a spin-off of Java,
+and it has been characterized by many as a
+marketing ploy by Netscape to give JavaScript the
+cachet of what was then the hot new web-programming language.
+          </textarea>
+
+          <script>
+            $(function() {
+             $(".lined").linedtextarea(
+               {selectedLine: 1}
+             );
+            });
+          </script>
+        </div>
+        <!-- /.row -->
+
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <!--<script src="js/jquery.js"></script>-->
+
+    <!-- Bootstrap Core JavaScript -->
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+
+</body>
+
+</html>
