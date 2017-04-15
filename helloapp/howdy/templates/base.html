@@ -18,6 +18,31 @@
     <link href="/static/jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
     <script src="/static/jquery-3.2.1.js"></script>
 	  <script src="/static/jquery-linedtextarea.js"></script>
+    <script src="/static/sweetalert-master/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/sweetalert-master/dist/sweetalert.css">
+
+    <script>
+      $(function() {
+       $(".lined").linedtextarea(
+         {selectedLine: 1}
+       );
+      });
+    </script>
+
+    <script type='text/javaScript'>
+      function init()
+      {
+        document.getElementById("compare_btn").onclick = foo;
+      }
+      function foo()
+      {
+        swal({
+            title: "Sweet!",
+            text: "Here's a custom image.",
+            imageUrl: "/static/sweetalert-master/example/images/thumbs-up.jpg"
+          });
+      }
+    </script>
 
     <style type='text/css'>
       textarea {
@@ -29,11 +54,17 @@
       -moz-box-shadow: none;
       box-shadow: none;
       }
+      .row #compare_btn_div
+      {
+        left: 40%;
+        bottom: 0;
+        position: absolute;
+      }
     </style>
 
 </head>
 
-<body>
+<body onload="init()">
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -79,48 +110,24 @@
             </div>
         </div>
         <p>
-        <div class="w3-card-4" height='100'>
-          <textarea class="lined" rows="10" cols="60">JavaScript was originally developed by Brendan
-Eich of Netscape under the name Mocha,
-which was later renamed to LiveScript,
-and finally to JavaScript.
 
-The change of name from LiveScript to JavaScript roughly
-coincided with Netscape adding support for
-Java technology in its Netscape Navigator
-web browser.
+        <div class="row" style="height:400px; position:relative;">
+          <div class="w3-card-4" style="float:left; height:300px;">
+            <textarea class="lined" rows="18" cols="60">
+            </textarea>
+          </div>
+          <div class="w3-card-4" style="float:right; height:300px;">
+            <textarea class="lined" rows="10" cols="60">
+            </textarea>
+          </div>
+          <p><p>
+          <div id="compare_btn_div" class="w3-panel" style="width:20%">
+            <button id="compare_btn" class="w3-btn w3-ripple w3-block w3-wide w3-round w3-red" style="height:50px;">Compare</button>
+          </div>
 
-JavaScript was first introduced
-and deployed in the Netscape browser version
-2.0B3 in December 1995.
-
-The naming has caused confusion, giving the
-impression that the language is a spin-off of Java,
-and it has been characterized by many as a
-marketing ploy by Netscape to give JavaScript the
-cachet of what was then the hot new web-programming language.
-          </textarea>
-
-          <script>
-            $(function() {
-             $(".lined").linedtextarea(
-               {selectedLine: 1}
-             );
-            });
-          </script>
+          <!--<input id="compare_btn" type="button" value="click" onclick="foo();" />-->
         </div>
-        <!-- /.row -->
-
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
+        <p>
 
     </div>
     <!-- /.container -->
