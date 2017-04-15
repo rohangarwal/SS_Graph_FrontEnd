@@ -33,7 +33,6 @@
       /*
       function init()
       {
-        document.getElementById("compare_btn").onclick = foo;
       }
       */
       $(document).ready(function(){
@@ -60,16 +59,6 @@
           });
         });
       });
-      /*
-      function foo()
-      {
-        swal({
-            title: "Sweet!",
-            text: "Here's a custom image.",
-            imageUrl: "/static/sweetalert-master/example/images/thumbs-up.jpg"
-          });
-      }
-      */
     </script>
 
     <style type='text/css'>
@@ -77,7 +66,6 @@
       border: none;
       overflow: auto;
       outline: none;
-
       -webkit-box-shadow: none;
       -moz-box-shadow: none;
       box-shadow: none;
@@ -115,88 +103,93 @@
       }
       #query_results_div
       {
+        top:500px; /* #main-container.offsetTop ; user_inp_div_outer.height + somevalue*/
+        position:absolute;
         margin-top:20%;
         background-color: red;
+      }
+      #upper-container-panel h1
+      {
+        color:white;
       }
       .w3-card-4
       {
         background-color: white;
       }
+      .navbar-inverse{
+       margin-bottom: 0!important;
+      }
+      #upper-container-panel
+      {
+      }
+      #upper-container
+      {
+        background-color: #f45236;
+      }
+      #navbar-div
+      {
+        text-align:center;
+      }
+      #navbar-div ul
+      {
+        max-width:660px!important;
+        margin:auto!important;
+      }
     </style>
-
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+    <div id="upper-container">
+      <!-- Navigation -->
+      <nav class="navbar navbar-inverse" role="navigation">
+              <div id="navbar_div">
+                  <ul class="nav navbar-nav">
+                      <li>
+                          <a href="#">About</a>
+                      </li>
+                      <li>
+                          <a href="#">Services</a>
+                      </li>
+                      <li>
+                          <a href="#">Contact</a>
+                      </li>
+                  </ul>
+              </div>
+      </nav>
+      <div id="upper-container-panel" style="background-color:#f45236">
+        <h1>Provides semantic search functionality.</h1>
+      </div>
+    </div>
+
 
     <!-- Page Content-->
     <div id="main-container">
-        <p>
-        <!-- Page Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Page Heading
-                    <small>Secondary Text</small>
-                </h1>
-            </div>
-        </div>
-        <p>
 
-        <div id="user_inp_div_outer">
-          <h1>Enter Your Input.</h1>
-          <div class="row" id="user_input_div">
-            <div class="w3-card-4" style="float:left; height:300px;">
-              <textarea id="textarea1" class="lined" rows="18" cols="60">
-              </textarea>
-            </div>
-            <div class="w3-card-4" style="float:right; height:300px;">
-              <textarea id="textarea2" class="lined" rows="10" cols="60">
-              </textarea>
-            </div>
-            <p><p>
-            <div id="compare_btn_div" class="w3-panel" style="width:20%">
-              {% csrf_token %}
-              <button id="compare_btn" class="w3-btn w3-ripple w3-block w3-wide w3-round w3-red" style="height:50px;">Compare</button>
-            </div>
+      <div id="user_inp_div_outer">
+        <h1>Enter Your Input.</h1>
+        <div class="row" id="user_input_div">
+          <div class="w3-card-4" style="float:left; height:300px;">
+            <textarea id="textarea1" class="lined" rows="18" cols="60">
+            </textarea>
+          </div>
+          <div class="w3-card-4" style="float:right; height:300px;">
+            <textarea id="textarea2" class="lined" rows="10" cols="60">
+            </textarea>
+          </div>
+          <p><p>
+          <div id="compare_btn_div" class="w3-panel" style="width:20%">
+            {% csrf_token %}
+            <button id="compare_btn" class="w3-btn w3-ripple w3-block w3-wide w3-round w3-red" style="height:50px;">Compare</button>
           </div>
         </div>
+      </div>
 
-        <div id="query_results_div">
-          <p>
-            <h1>here is some text</h1>
-          <p>
-        </div>
+      <div id="query_results_div">
+        <p>
+          <h1>here is some text</h1>
+        <p>
+      </div>
 
     </div>
     <!-- /.container -->
