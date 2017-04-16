@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-import sys
+import sys, time
 
 from django.shortcuts import render
 from django.http import JsonResponse
@@ -23,5 +23,9 @@ def debug_ajax(request):
     data_ = sample.foo()
     #print 'inside debug_ajax'
     ret_data = { 'working' : True,
-                 'data_' : data_ }
+                 'score' : 0.99,
+                 'text1' : "this is some random text.\
+                            this is another line of random text."
+               }
+    time.sleep(2)
     return JsonResponse(ret_data)
