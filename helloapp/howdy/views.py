@@ -22,10 +22,12 @@ def debug_ajax(request):
     input_data = request.GET.get('input_data', None)
     data_ = sample.foo()
     #print 'inside debug_ajax'
+    dict1 = {'dog':'sodog', 'puppies':'sopuppies', 'latent':'solatent'}
     ret_data = { 'working' : True,
                  'score' : 0.99,
-                 'text1' : "this is some random text.\
-                            this is another line of random text."
+                 'text1' : "this is some random dogs dog text.\
+                            this is another puppies line of latent random text.",
+                 'dict1' : dict1
                }
     time.sleep(2)
     return JsonResponse(ret_data)

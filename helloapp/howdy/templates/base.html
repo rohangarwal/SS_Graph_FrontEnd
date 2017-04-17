@@ -81,10 +81,29 @@
                               h.appendChild(t);
                               query_results_div.appendChild(h);
                               var result_div = document.createElement('div');
-                              text_area1 = document.createElement("textarea");
-                              text_area1.className = 'lined';
-                              text_area1.value = data.text1;
-                              result_div.appendChild(text_area1);
+                              var textarea1 = document.createElement("textarea");
+                              textarea1.width = "50px";
+                              //text_area1.value = data.text1;
+                              text1_arr = data.text1.split()
+                              text1_length = text1_arr.length;
+                              text1_dict = data.dict1
+                              text1_dict_keys = Object.keys(text1_dict)
+                              for(var i=0; i<text1_length; i++)
+                              {
+                                if( text1_dict_keys.includes(text1_arr[i]) ) {
+                                  /*
+                                  var btn = document.createElement('input');
+                                  btn.class = "textbtn";
+                                  btn.type = 'button';
+                                  btn.value = text1_arr[i];
+                                  */
+                                  textarea1.innerHTML = textarea1.innerHTML + '<button class="textbtn" type="button">' + text1_arr[i] + '</button>' + ' ';
+                                }
+                                else {
+                                  textarea1.innerHTML = textarea1.innerHTML + text1_arr[i] + " ";
+                                }
+                              }
+                              result_div.appendChild(textarea1);
                               query_results_div.appendChild(result_div);
 
                               //swal("Good job!", "You clicked the button!", "success",{timer:2000;});
@@ -250,10 +269,6 @@
         <p>
           <h1>Do a Search and see responses here.</h1>
         <p>
-        <span style="background-color:white;">
-          this is some text.
-          another line of text
-        </span>
       </div>
 
     </div>
