@@ -47,6 +47,14 @@
         footer = document.getElementById('footer');
         footer.style.top = query_results_div.offsetTop + query_results_div.offsetHeight + "px";
       }
+      function foo()
+      {
+        console.log('this is a shitty function');
+      }
+      function create_query_results_inner_div(backgroundColor)
+      {
+
+      }
       $(document).ready(function(){
         //$("#textarea1").value = '';
         //$("#textarea2").value = '';
@@ -79,31 +87,34 @@
                               var text = "Similarity Score is " + data.score;
                               var t = document.createTextNode(text);
                               h.appendChild(t);
+                              h.style.top = '5%';
                               query_results_div.appendChild(h);
+
                               var result_div = document.createElement('div');
-                              var textarea1 = document.createElement("textarea");
-                              textarea1.width = "50px";
+                              result_div.id = 'results_div';
+
+                              create_query_results_inner_div();
+
+                              var div1 = document.createElement("div");
+                              div1.className = "query_results_inner_div";
+                              div1.style.backgroundColor = '#98FB98'; //pale green
+                              div1.style.cssFloat = 'left';
+                              div1.style.height = (query_results_div.offsetHeight * 60) / 100 + 'px';
                               //text_area1.value = data.text1;
-                              text1_arr = data.text1.split()
+                              text1_arr = data.text1.split(/\s+/)
                               text1_length = text1_arr.length;
                               text1_dict = data.dict1
                               text1_dict_keys = Object.keys(text1_dict)
                               for(var i=0; i<text1_length; i++)
                               {
                                 if( text1_dict_keys.includes(text1_arr[i]) ) {
-                                  /*
-                                  var btn = document.createElement('input');
-                                  btn.class = "textbtn";
-                                  btn.type = 'button';
-                                  btn.value = text1_arr[i];
-                                  */
-                                  textarea1.innerHTML = textarea1.innerHTML + '<button class="textbtn" type="button">' + text1_arr[i] + '</button>' + ' ';
+                                  div1.innerHTML = div1.innerHTML + '<a href="javascript:foo()" class="clicktext">' + text1_arr[i] + '</a>' + ' ';
                                 }
                                 else {
-                                  textarea1.innerHTML = textarea1.innerHTML + text1_arr[i] + " ";
+                                  div1.innerHTML = div1.innerHTML + text1_arr[i] + " ";
                                 }
                               }
-                              result_div.appendChild(textarea1);
+                              result_div.appendChild(div1);
                               query_results_div.appendChild(result_div);
 
                               //swal("Good job!", "You clicked the button!", "success",{timer:2000;});
@@ -115,6 +126,7 @@
               });
             });
       });
+      //$('#query_results_inner_div1').find('.clicktext').click( function foo() { console.log('called shitty foo'); } ); // not working- debug
     </script>
 
     <style type='text/css'>
@@ -126,11 +138,33 @@
       -moz-box-shadow: none;
       box-shadow: none;
       }
+      a
+      {
+        cursor:pointer;
+      }
+      .clicktext
+      {
+        background : #88B04B; //color = greenery
+      }
       .row #compare_btn_div
       {
         left: 40%;
         bottom: 0;
         position: absolute;
+      }
+      #results_div
+      {
+        position: relative;
+        top:15%;
+      }
+      .query_results_inner_div
+      {
+        /*height:50%;*/
+        width:30%;
+        position: absolute;
+        top:20%;
+        margin-left: 8%;
+        margin-right: 8%;
       }
       #user_inp_div_outer
       {
